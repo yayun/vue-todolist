@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <div id="app">
+    <h1>{{ title }}</h1>
+    <p v-if="show">
+      {{ name }}
+    </p>
+    <p v-for="cat in cats">
+      {{ cat }}
+    </p>
+    <p>
+      a={{ a }} b={{ b }}
+    </p>
+    <p>
+      mom={{ mom }}
+      dad={{ dad }}
+      child={{ child }}
+    </p>
+    <div v-bind:class="classObject" v-bind:style="styleObject">show class object</div>
+    <template v-if="ok">i am ok</template>
+    <template v-else>i am not ok</template>
+    <!--事件处理器 直接绑定到greet方法-->
+    <button v-on:click="greet">done~</button>
+    <button v-on:click="say('hello yayun', $event)">Submit</button>
+    </br>
+    <input type="text" v-model="message">
+    </br>
+    <p> message = {{ message }} </p>
+    <input type="checkbox" id="checkbox" v-model="checked">
+    <label for="checkbox">{{ checked }}</label>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+  var expData = {
+    name: "yayun",
+    show: true,
+    cats: ["miao1", "miao2", "miao3"],
+    a: 1,
+    mom: "lily",
+    // v-bind class 还有点不太理解?
+    classObject: {
+      "a": false,
+      "b": false,
+    },
+    styleObject: {
+      color: 'red',
+      fontSize: '30px',
+    },
+    ok: true,
+    message: "please input"
+  }
+  var vm = new Vue({
+    el: '#app',
+    data: expData,
+    // 计算属性
+    computed: {
+      b: function () {
+        return this.a + 2
+      },
+      child: {
+        get: function() {
+          return this.mom + " " + this.dad
+        },
+        set: function(newValue) {
+          // 修改vm.child 的值，mom 和dad 就会跟着变化
+          var name = newValue.split(" ")
+          this.mom = name[0]
+          this.dad = name[1]
+        }
+      } 
+    },
+    // method对象中定义方法
+    methods: {
+      // event指事件本身
+      greet: function(event){
+        alert(event)
+        alert("Hello" + this.name)
+      },
+      say: function(msg, event){
+        event.preventDefault()
+        alert(msg)
+        alert(event.target.tagName)
+      }
+    }
+  })
+  </script>
+</html>

@@ -1,0 +1,58 @@
+.body {
+  font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif
+}
+.row-todo-header {
+  margin-top: 100px;
+  font-weight: 200;
+  color: rgba(175, 47, 47, 0.15);
+  text-align: center;
+}
+
+.row-todo-header h1 {
+  font-size: 70px;
+}
+
+.row-input {
+  margin: 20px 0 20px 0;
+}
+
+#myInput {
+  font-size: 24px;
+  line-height: 1.4em;
+  display: block;
+  width: 100%;
+}
+
+.row-todo-list {
+  margin: 0;
+  font-size: 24px;
+  height: auto;
+}
+
+.row-todo-list li {
+  border-bottom: 1px solid #eee;
+}
+
+.row-bottom {
+  margin: 20px 0 0 0;
+}
+
+.todo-done {
+  color: #d9d9d9;
+  font: normal 24px courier;
+  text-decoration: line-through;
+}
+
+.checkbox-circle {
+  transform: scale(1.5);
+  width: 40px;
+  cursor: pointer;
+}
+
+.todo-remove {
+  color: #000;
+}
+
+.todo-remove:hover {
+  text-decoration: none;
+}

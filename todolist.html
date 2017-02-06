@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <div id="app">
+    <ul>
+    <li v-for="note in notes">
+      {{ note }}
+    </li>
+    </ul>
+    <button @click="incrnote">+</button>
+    <button @click="decrnote">-</button>
+  </div>
+  <script src="./build.js"></script>
+</html>
